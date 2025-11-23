@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 255, 247, 237;
+  --background-end-rgb: 254, 243, 199;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,7 +47,7 @@ body {
 }
 
 .prose a {
-  @apply text-blue-600 dark:text-blue-400 hover:underline;
+  @apply text-orange-600 dark:text-orange-400 hover:underline;
 }
 
 .prose ul {

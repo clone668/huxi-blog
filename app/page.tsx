@@ -26,10 +26,10 @@ export default function Home() {
           {posts.map((post) => (
             <article 
               key={post.slug}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all p-6 border border-orange-100 dark:border-gray-700 hover:border-orange-200 dark:hover:border-gray-600"
             >
               <Link href={`/posts/${post.slug}`}>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
                   {post.title}
                 </h3>
               </Link>
@@ -48,7 +48,7 @@ export default function Home() {
               </p>
               <Link 
                 href={`/posts/${post.slug}`}
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                className="inline-flex items-center text-orange-600 dark:text-orange-400 hover:underline font-medium"
               >
                 阅读全文 →
               </Link>

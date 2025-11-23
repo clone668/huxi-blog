@@ -37,7 +37,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       {/* Back Button */}
       <Link 
         href="/"
-        className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" />
         返回首页
@@ -58,7 +58,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
       {/* Post Content */}
       <div 
-        className="prose prose-lg max-w-none bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-gray-200 dark:border-gray-700"
+        className="prose prose-lg max-w-none bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-orange-100 dark:border-gray-700"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </article>

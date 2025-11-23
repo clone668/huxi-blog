@@ -3,7 +3,7 @@ import { Github, Mail, Twitter } from 'lucide-react'
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-gray-200 dark:border-gray-700">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-orange-100 dark:border-gray-700">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
           关于我
         </h1>
@@ -34,7 +34,7 @@ export default function AboutPage() {
               href="https://github.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-orange-50 dark:bg-gray-700 rounded-lg hover:bg-orange-100 dark:hover:bg-gray-600 transition-colors text-orange-700 dark:text-gray-200"
             >
               <Github className="w-5 h-5" />
               GitHub
@@ -43,14 +43,14 @@ export default function AboutPage() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-orange-50 dark:bg-gray-700 rounded-lg hover:bg-orange-100 dark:hover:bg-gray-600 transition-colors text-orange-700 dark:text-gray-200"
             >
               <Twitter className="w-5 h-5" />
               Twitter
             </a>
             <a 
               href="mailto:your@email.com"
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-orange-50 dark:bg-gray-700 rounded-lg hover:bg-orange-100 dark:hover:bg-gray-600 transition-colors text-orange-700 dark:text-gray-200"
             >
               <Mail className="w-5 h-5" />
               Email
