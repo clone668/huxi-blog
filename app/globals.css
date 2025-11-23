@@ -18,6 +18,11 @@ a:hover {
   opacity: 0.6;
 }
 
+/* 次要链接样式（灰色） */
+.mobile-header div a {
+  color: #666;
+}
+
 /* 响应式布局 */
 @media (min-width: 768px) {
   .sidebar {

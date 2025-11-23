@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Link from 'next/link'
 import { Analytics } from '@vercel/analytics/react'
+import { blogConfig } from '@/config'
 
 export const metadata: Metadata = {
-  title: 'Huxi Blog',
-  description: '分享技术、生活和思考',
+  title: blogConfig.title,
+  description: blogConfig.description,
 }
 
 export default function RootLayout({
@@ -32,22 +33,36 @@ export default function RootLayout({
             <div style={{ position: 'sticky', top: '40px' }}>
               <Link href="/" style={{ textDecoration: 'none' }}>
                 <h1 style={{ fontSize: '24px', fontWeight: 'normal', margin: '0 0 30px 0' }}>
-                  Huxi Blog
+                  {blogConfig.title}
                 </h1>
               </Link>
               
               <nav style={{ marginBottom: '40px' }}>
-                <div style={{ marginBottom: '10px' }}>
-                  <Link href="/">HOME</Link>
-                </div>
-                <div style={{ marginBottom: '10px' }}>
-                  <Link href="/about">ABOUT</Link>
-                </div>
+                {blogConfig.navigation.map((item) => (
+                  <div key={item.name} style={{ marginBottom: '10px' }}>
+                    <Link href={item.url}>{item.name}</Link>
+                  </div>
+                ))}
               </nav>
+
+              {/* 自定义链接区域 */}
+              <div style={{ marginBottom: '30px', fontSize: '14px' }}>
+                {blogConfig.social.map((item) => (
+                  <div key={item.name} style={{ marginBottom: '8px' }}>
+                    <a 
+                      href={item.url} 
+                      target={item.type === 'external' ? '_blank' : undefined}
+                      rel={item.type === 'external' ? 'noopener noreferrer' : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
 
               <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>
                 <p style={{ margin: '0 0 10px 0' }}>
-                  分享技术、生活和思考
+                  {blogConfig.description}
                 </p>
               </div>
             </div>
@@ -63,13 +78,33 @@ export default function RootLayout({
               display: 'block'
             }} className="mobile-header">
               <Link href="/" style={{ textDecoration: 'none' }}>
-                <h1 style={{ fontSize: '24px', fontWeight: 'normal', margin: 0 }}>Huxi Blog</h1>
+                <h1 style={{ fontSize: '24px', fontWeight: 'normal', margin: 0 }}>
+                  {blogConfig.title}
+                </h1>
               </Link>
-              <nav style={{ marginTop: '10px' }}>
-                <Link href="/">HOME</Link>
-                {' / '}
-                <Link href="/about">ABOUT</Link>
+              <nav style={{ marginTop: '10px', fontSize: '14px' }}>
+                {blogConfig.navigation.map((item, index) => (
+                  <span key={item.name}>
+                    {index > 0 && ' / '}
+                    <Link href={item.url}>{item.name}</Link>
+                  </span>
+                ))}
               </nav>
+              {/* 移动端链接 */}
+              <div style={{ marginTop: '10px', fontSize: '14px', color: '#666' }}>
+                {blogConfig.social.map((item, index) => (
+                  <span key={item.name}>
+                    {index > 0 && ' / '}
+                    <a 
+                      href={item.url}
+                      target={item.type === 'external' ? '_blank' : undefined}
+                      rel={item.type === 'external' ? 'noopener noreferrer' : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  </span>
+                ))}
+              </div>
             </header>
 
             <main>
@@ -77,7 +112,7 @@ export default function RootLayout({
             </main>
 
             <footer style={{ marginTop: '80px', fontSize: '14px' }}>
-              <p>© 2025</p>
+              <p>{blogConfig.footer.copyright}</p>
             </footer>
           </div>
         </div>
