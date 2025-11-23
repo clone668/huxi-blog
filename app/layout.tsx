@@ -32,10 +32,26 @@ export default function RootLayout({
           }} className="sidebar">
             <div style={{ position: 'sticky', top: '40px' }}>
               <Link href="/" style={{ textDecoration: 'none' }}>
-                <h1 style={{ fontSize: '24px', fontWeight: 'normal', margin: '0 0 30px 0' }}>
+                {/* Logo */}
+                {blogConfig.logo && (
+                  <div style={{ fontSize: '64px', marginBottom: '4px' }}>
+                    {blogConfig.logo.startsWith('/') ? (
+                      <img src={blogConfig.logo} alt="logo" style={{ width: '64px', height: '64px' }} />
+                    ) : (
+                      blogConfig.logo
+                    )}
+                  </div>
+                )}
+                
+                <h1 style={{ fontSize: '24px', fontWeight: 'normal', margin: '0 0 4px 0' }}>
                   {blogConfig.title}
                 </h1>
               </Link>
+              
+              {/* 副标题 */}
+              <p style={{ fontSize: '14px', color: '#666', margin: '0 0 30px 0', lineHeight: '1.6' }}>
+                {blogConfig.description}
+              </p>
               
               <nav style={{ marginBottom: '40px' }}>
                 {blogConfig.navigation.map((item) => (
@@ -59,12 +75,6 @@ export default function RootLayout({
                   </div>
                 ))}
               </div>
-
-              <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>
-                <p style={{ margin: '0 0 10px 0' }}>
-                  {blogConfig.description}
-                </p>
-              </div>
             </div>
           </aside>
 
@@ -78,11 +88,28 @@ export default function RootLayout({
               display: 'block'
             }} className="mobile-header">
               <Link href="/" style={{ textDecoration: 'none' }}>
-                <h1 style={{ fontSize: '24px', fontWeight: 'normal', margin: 0 }}>
+                {/* Logo */}
+                {blogConfig.logo && (
+                  <div style={{ fontSize: '64px', marginBottom: '4px' }}>
+                    {blogConfig.logo.startsWith('/') ? (
+                      <img src={blogConfig.logo} alt="logo" style={{ width: '64px', height: '64px' }} />
+                    ) : (
+                      blogConfig.logo
+                    )}
+                  </div>
+                )}
+                
+                <h1 style={{ fontSize: '24px', fontWeight: 'normal', margin: '0 0 4px 0' }}>
                   {blogConfig.title}
                 </h1>
               </Link>
-              <nav style={{ marginTop: '10px', fontSize: '14px' }}>
+              
+              {/* 副标题 */}
+              <p style={{ fontSize: '14px', color: '#666', margin: '0 0 10px 0', lineHeight: '1.6' }}>
+                {blogConfig.description}
+              </p>
+              
+              <nav style={{ fontSize: '14px' }}>
                 {blogConfig.navigation.map((item, index) => (
                   <span key={item.name}>
                     {index > 0 && ' / '}
@@ -111,8 +138,8 @@ export default function RootLayout({
               {children}
             </main>
 
-            <footer style={{ marginTop: '80px', fontSize: '14px' }}>
-              <p>{blogConfig.footer.copyright}</p>
+            <footer style={{ marginTop: '8px', fontSize: '14px', textAlign: 'center' }}>
+              <p style={{ margin: 0 }}>{blogConfig.footer.copyright}</p>
             </footer>
           </div>
         </div>

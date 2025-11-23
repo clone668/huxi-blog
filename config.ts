@@ -5,6 +5,7 @@ export const blogConfig = {
   title: 'Huxi Blog',
   description: '分享技术、生活和思考',
   author: 'Huxi',
+  logo: '/logo.png', // 可以是 emoji 或图片路径如 '/logo.png'
   
   // 社交链接
   social: [
@@ -38,19 +39,38 @@ export const blogConfig = {
   // 导航菜单
   navigation: [
     {
-      name: 'HOME',
+      name: '首页',
       url: '/',
     },
     {
-      name: 'ABOUT',
+      name: '分类',
+      url: '/categories',
+    },
+    {
+      name: '关于',
       url: '/about',
     },
   ],
   
   // 页脚信息
   footer: {
-    copyright: '© 2025',
+    copyright: 'Copyright © 2025 Huxi',
   },
+  
+  // 分页设置
+  pagination: {
+    postsPerPage: 8, // 每页显示文章数量
+  },
+  
+  // 分类配置（可选，文章可以使用任意分类，这里只是参考）
+  categories: [
+    { name: 'AI', slug: 'ai' },
+    { name: '编程', slug: 'coding' },
+    { name: '网络', slug: 'network' },
+    { name: '建筑', slug: 'architecture' },
+    { name: '金融', slug: 'finance' },
+    { name: '思考', slug: 'thinking' },
+  ],
 }
 
 // 使用示例：

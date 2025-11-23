@@ -41,7 +41,17 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         <h1 style={{ fontSize: '28px', fontWeight: 'normal', margin: '0 0 10px 0' }}>
           {post.title}
         </h1>
-        <time style={{ fontSize: '14px', color: '#666' }}>{post.date}</time>
+        <div style={{ fontSize: '14px', color: '#666' }}>
+          <time>{post.date}</time>
+          {post.category && (
+            <>
+              {' · '}
+              <Link href={`/categories/${post.category}`} style={{ color: '#666' }}>
+                {post.category}
+              </Link>
+            </>
+          )}
+        </div>
       </header>
 
       <div 

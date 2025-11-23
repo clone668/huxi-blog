@@ -12,6 +12,8 @@ export interface Post {
   excerpt: string
   content: string
   readTime?: string
+  category?: string
+  cover?: string
 }
 
 export function getAllPosts(): Omit<Post, 'content'>[] {
@@ -35,6 +37,8 @@ export function getAllPosts(): Omit<Post, 'content'>[] {
         date: data.date || '',
         excerpt: data.excerpt || '',
         readTime: data.readTime || '5 分钟',
+        category: data.category || '',
+        cover: data.cover || '',
       }
     })
 
@@ -64,8 +68,33 @@ export function getPostBySlug(slug: string): Post | null {
       excerpt: data.excerpt || '',
       content: htmlContent as string,
       readTime: data.readTime,
+      category: data.category || '',
+      cover: data.cover || '',
     }
   } catch (error) {
     return null
   }
+}
+
+// 获取所有分类及其文章数量
+export function getAllCategories(): { name: string; count: number }[] {
+  const posts = getAllPosts()
+  const categoryMap = new Map<string, number>()
+  
+  posts.forEach(post => {
+    if (post.category) {
+      const count = categoryMap.get(post.category) || 0
+      categoryMap.set(post.category, count + 1)
+    }
+  })
+  
+  return Array.from(categoryMap.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count) // 按文章数量排序
+}
+
+// 根据分类获取文章
+export function getPostsByCategory(category: string): Omit<Post, 'content'>[] {
+  const allPosts = getAllPosts()
+  return allPosts.filter(post => post.category === category)
 }
