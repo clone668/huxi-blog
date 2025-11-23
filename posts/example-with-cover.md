@@ -1,6 +1,6 @@
 ---
 title: "带封面图的文章示例"
-date: "2024-11-24"
+date: "2025-11-25"
 excerpt: "这是一篇展示如何添加封面图的示例文章"
 category: "编程"
 cover: "/logo.png"

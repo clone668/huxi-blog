@@ -2,6 +2,10 @@
 
 一个使用 Next.js 构建的现代化博客系统。
 
+## 在线演示
+
+🌐 [https://hi.huxi.app](https://hi.huxi.app)
+
 ## 功能特性
 
 - 📝 支持 Markdown 文章
