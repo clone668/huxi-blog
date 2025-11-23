@@ -7,6 +7,28 @@ import { blogConfig } from '@/config'
 export const metadata: Metadata = {
   title: blogConfig.title,
   description: blogConfig.description,
+  openGraph: {
+    title: blogConfig.title,
+    description: blogConfig.description,
+    url: 'https://hi.huxi.app',
+    siteName: blogConfig.title,
+    images: [
+      {
+        url: 'https://hi.huxi.app/logo.png', // 分享图片的完整URL
+        width: 512,
+        height: 512,
+        alt: blogConfig.title,
+      }
+    ],
+    locale: 'zh_CN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: blogConfig.title,
+    description: blogConfig.description,
+    images: ['https://hi.huxi.app/logo.png'],
+  },
 }
 
 export default function RootLayout({
