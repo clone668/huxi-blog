@@ -2,74 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 247, 237;
-  --background-end-rgb: 254, 243, 199;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 17, 24, 39;
-    --background-end-rgb: 17, 24, 39;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #000;
+  background: #fff;
+  line-height: 1.6;
 }
 
-.prose {
-  @apply text-gray-800 dark:text-gray-200;
+a {
+  color: #000;
+  text-decoration: underline;
 }
 
-.prose h1 {
-  @apply text-3xl font-bold mb-4 mt-8 text-gray-900 dark:text-white;
+a:hover {
+  opacity: 0.6;
 }
 
-.prose h2 {
-  @apply text-2xl font-bold mb-3 mt-6 text-gray-900 dark:text-white;
-}
-
-.prose h3 {
-  @apply text-xl font-bold mb-2 mt-4 text-gray-900 dark:text-white;
-}
-
-.prose p {
-  @apply mb-4 leading-relaxed;
-}
-
-.prose a {
-  @apply text-orange-600 dark:text-orange-400 hover:underline;
-}
-
-.prose ul {
-  @apply list-disc list-inside mb-4 space-y-2;
-}
-
-.prose ol {
-  @apply list-decimal list-inside mb-4 space-y-2;
-}
-
-.prose code {
-  @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono;
-}
-
-.prose pre {
-  @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4;
-}
-
-.prose blockquote {
-  @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic my-4;
-}
-
-.prose img {
-  @apply rounded-lg my-4;
+/* 响应式布局 */
+@media (min-width: 768px) {
+  .sidebar {
+    display: block !important;
+  }
+  .mobile-header {
+    display: none !important;
+  }
 }

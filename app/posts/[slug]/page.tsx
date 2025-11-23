@@ -1,5 +1,4 @@
 import { getAllPosts, getPostBySlug } from '@/lib/posts'
-import { Calendar, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -33,32 +32,20 @@ export default function PostPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <article className="max-w-3xl mx-auto">
-      {/* Back Button */}
-      <Link 
-        href="/"
-        className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors mb-8"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        返回首页
+    <article>
+      <Link href="/" style={{ fontSize: '14px', marginBottom: '20px', display: 'inline-block' }}>
+        ← 返回
       </Link>
 
-      {/* Post Header */}
-      <header className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+      <header style={{ marginBottom: '40px' }}>
+        <h1 style={{ fontSize: '28px', fontWeight: 'normal', margin: '0 0 10px 0' }}>
           {post.title}
         </h1>
-        <div className="flex items-center gap-4 text-gray-500 dark:text-gray-400">
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4" />
-            <time>{post.date}</time>
-          </div>
-        </div>
+        <time style={{ fontSize: '14px', color: '#666' }}>{post.date}</time>
       </header>
 
-      {/* Post Content */}
       <div 
-        className="prose prose-lg max-w-none bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-orange-100 dark:border-gray-700"
+        style={{ lineHeight: '1.8' }}
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </article>
